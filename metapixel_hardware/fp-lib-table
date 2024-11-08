@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "ENSADLED")(type "KiCad")(uri "${KIPRJMOD}/ENSADLED.pretty")(options "")(descr ""))
+)

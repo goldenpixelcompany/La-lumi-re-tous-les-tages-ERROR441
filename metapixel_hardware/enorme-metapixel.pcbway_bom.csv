@@ -1,0 +1,33 @@
+,,,,,,,,
+,,,T-I210W48185A 170PCS BOM  (Bill of Materials),,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+Item #,*Designator,*Qty,Manufacturer,*Mfg Part #,Description / Value,*Package/Footprint ,Type,Your Instructions / Notes
+1,C1,1,,,1µF 5V,C_0603_1608Metric,SMD,do use this exact part. LCSC # C150119
+2,"C3, C4",2,Murata Electronics,GRM188R6YA106MA73D,10µF 35V X5R,C_0603_1608Metric,SMD,do use this exact part. LCSC # C150120
+3,"C5, C11",2,CCTC,TCC0603X7R104K500CT,100nF 50V X7R,C_0603_1608Metric,SMD,do use this exact part. LCSC # C150121
+4,C6,1,YAGEO,CC0603KRX7R9BB333,33nF 50V X7R,C_0603_1608Metric,SMD,do use this exact part. LCSC # C150122
+5,C7,1,CCTC,TCC0402X5R104M250AT,0.1µF 25V X5R,C_0402_1005Metric,SMD,do use this exact part. LCSC # C150123
+6,"C8, C9, C2",3,Chinocera,HGC0603R5226M100NTHJ,22µF 10V X5R,C_0603_1608Metric,SMD,do use this exact part. LCSC # C150124
+7,D1,1,XINGLIGHT,XL-1608UBC-04,USER LED BLUE,LED_0603_1608Metric,SMD,do use this exact part. LCSC # C150125
+8,L1,1,SHOU HAN,CYA0650-6.8UH,6.8µH,L_Bourns_SRP7028A_7.3x6.6mm,SMD,do use this exact part. LCSC # C150126
+9,"Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9",9,TOSHIBA,SSM3K329R,SSM3K329R,SOT-23,SMD,do use this exact part. LCSC # C150127
+10,"R1, R2, R3, R4, R5, R6, R7, R8, R9",9,,,100K,R_0603_1608Metric,SMD,
+11,"R10, R11",2,,,10K,R_0603_1608Metric,SMD,
+12,"R12, R13, R14, R15, R16, R17, R18, R19, R20, R21",10,,,1K,R_0603_1608Metric,SMD,
+13,R22,1,,,5R 5%,R_0603_1608Metric,SMD,
+14,R23,1,,,10K 1%,R_0603_1608Metric,SMD,
+15,R24,1,,,52.3K 1%,R_0603_1608Metric,SMD,
+16,SW1,1,PANASONIC,EVQQ2U03W,SW_RESET,EVQQ2,SMD,do use this exact part. LCSC # C701204
+17,SW2,1,PANASONIC,EVQQ2U03W,SW_BOOT,EVQQ2,SMD,do use this exact part. LCSC # C701204
+18,U1,1,STMicroelectronics,LDL1117S33R,LDL1117-3.3,SOT-223-3_TabPin2,SMD,do use this exact part. LCSC # C435835
+19,U2,1,Espressif Systems,ESP32-WROOM-32-N4,ESP32-WROOM-32,ESP32-WROOM-32,SMD,do use this exact part. LCSC # C82899
+20,U3,1,TPS62933DRLR,TPS62933DRLR,TPS62933DRLR,SOT-583-8,SMD,do use this exact part. LCSC # C3200405
+21,H1,1,do not place,do not place,M4,MountingHole_4.3mm_M4,DNS / DNP,do not place / do not buy
+22,H2,1,do not place,do not place,PEG,MountingHole_3.2mm_M3,DNS / DNP,do not place / do not buy
+23,"J1, J6",2,do not place,do not place,VIN,bornier-2_P5.08mm,DNS / DNP,do not place / do not buy
+24,J2,1,do not place,do not place,STRIP_0,PLUG_Terminal_01x04_2.54mm,DNS / DNP,do not place / do not buy
+25,J3,1,do not place,do not place,STRIP_1,PLUG_Terminal_01x04_2.54mm,DNS / DNP,do not place / do not buy
+26,J4,1,do not place,do not place,STRIP_2,PLUG_Terminal_01x04_2.54mm,DNS / DNP,do not place / do not buy
+27,J5,1,do not place,do not place,UART,PinHeader_1x04_P2.54mm_Vertical,DNS / DNP,do not place / do not buy
