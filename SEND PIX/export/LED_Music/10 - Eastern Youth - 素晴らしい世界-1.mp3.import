@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bkf0h6ecxxcvu"
+path="res://.godot/imported/10 - Eastern Youth - 素晴らしい世界-1.mp3-31a693f75122a5c90149d3f38ffdb27f.mp3str"
+
+[deps]
+
+source_file="res://export/LED_Music/10 - Eastern Youth - 素晴らしい世界-1.mp3"
+dest_files=["res://.godot/imported/10 - Eastern Youth - 素晴らしい世界-1.mp3-31a693f75122a5c90149d3f38ffdb27f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://6t1uh0nt55do"]
+
+[ext_resource type="Script" path="res://c_scroll_bar.gd" id="1_hvuwk"]
+[ext_resource type="Shader" path="res://c_scroll_bar.gdshader" id="2_dl2rv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3lw5f"]
+shader = ExtResource("2_dl2rv")
+shader_parameter/theme_color = null
+shader_parameter/color_coef = 1.0
+
+[sub_resource type="Gradient" id="Gradient_d33h4"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2upjj"]
+gradient = SubResource("Gradient_d33h4")
+
+[node name="c_scroll_bar" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 27.0
+offset_top = -2.0
+offset_right = 27.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_hvuwk")
+
+[node name="line" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(3, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 1)
+
+[node name="Button" type="TextureButton" parent="."]
+material = SubResource("ShaderMaterial_3lw5f")
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+focus_mode = 0
+keep_pressed_outside = true
+texture_normal = SubResource("GradientTexture1D_2upjj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="focus_entered" from="Button" to="." method="_on_button_focus_entered"]
+[connection signal="focus_exited" from="Button" to="." method="_on_button_focus_exited"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_mouse_exited"]

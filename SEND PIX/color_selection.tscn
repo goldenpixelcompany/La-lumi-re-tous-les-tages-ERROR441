@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://d4b7ci36gcw33"]
+
+[ext_resource type="Script" path="res://color_selection.gd" id="1_gdien"]
+[ext_resource type="Shader" path="res://color_wheel_shader.gdshader" id="1_s13te"]
+[ext_resource type="Shader" path="res://color_cursor.gdshader" id="2_rksn4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dy0lc"]
+shader = ExtResource("1_s13te")
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/line_thickness = 0.014
+shader_parameter/FSD = 0.7
+shader_parameter/FSA = 1.5
+shader_parameter/theme_color = null
+shader_parameter/color_factor = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pyvtv"]
+shader = ExtResource("2_rksn4")
+shader_parameter/line_thickness = 0.3
+
+[node name="Color_selection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gdien")
+
+[node name="color_wheel" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_dy0lc")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+color = Color(0.870588, 0.203922, 0, 1)
+
+[node name="cursor" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_pyvtv")
+layout_mode = 0
+offset_left = 848.0
+offset_top = 518.0
+offset_right = 888.0
+offset_bottom = 558.0
+color = Color(1, 0, 0, 1)
+
+[connection signal="color_selected_change" from="." to="." method="_on_color_selected_change"]
+[connection signal="resized" from="." to="." method="_on_resized"]
+[connection signal="mouse_entered" from="color_wheel" to="." method="_on_color_wheel_mouse_entered"]
+[connection signal="mouse_exited" from="color_wheel" to="." method="_on_color_wheel_mouse_exited"]

@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://kl3kppw5qg3g"]
+
+[ext_resource type="Script" path="res://Output.gd" id="1_3tb1t"]
+[ext_resource type="Shader" path="res://output_control.gdshader" id="2_i2leo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gsr6l"]
+shader = ExtResource("2_i2leo")
+shader_parameter/R = 0.0
+shader_parameter/G = 1.0
+shader_parameter/B = 1.0
+shader_parameter/H_control = false
+shader_parameter/H = 5.0
+shader_parameter/S = 1.0
+shader_parameter/V = 0.0
+shader_parameter/effect1 = null
+shader_parameter/effect2 = null
+shader_parameter/effect3 = null
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0ls2m"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Output" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3tb1t")
+
+[node name="Ouput_animation" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_gsr6l")
+sprite_frames = SubResource("SpriteFrames_0ls2m")
+centered = false

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dt6w8dbdlvbrr"
+path="res://.godot/imported/EARGASM GOD - EXCUSE ME.ogg-675f9c44a18f0f3fbc562017649122bf.oggvorbisstr"
+
+[deps]
+
+source_file="res://musique/EARGASM GOD - EXCUSE ME.ogg"
+dest_files=["res://.godot/imported/EARGASM GOD - EXCUSE ME.ogg-675f9c44a18f0f3fbc562017649122bf.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

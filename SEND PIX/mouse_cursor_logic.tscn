@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmbyh7ch7gdkc"]
+
+[ext_resource type="Script" path="res://Mouse_cursor_logic.gd" id="1_wvb4e"]
+
+[node name="Mouse_cursor_logic" type="Node2D"]
+script = ExtResource("1_wvb4e")
+general_theme_color = Color(0.866667, 0.701961, 0.988235, 1)
+screen_rez = Vector2i(38, 10)

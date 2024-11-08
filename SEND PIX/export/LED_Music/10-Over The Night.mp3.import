@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dgs6x3calfjlh"
+path="res://.godot/imported/10-Over The Night.mp3-9c1fee94a26cfa62c1a928091f961136.mp3str"
+
+[deps]
+
+source_file="res://export/LED_Music/10-Over The Night.mp3"
+dest_files=["res://.godot/imported/10-Over The Night.mp3-9c1fee94a26cfa62c1a928091f961136.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

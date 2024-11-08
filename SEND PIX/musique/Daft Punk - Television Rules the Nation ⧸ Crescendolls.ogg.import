@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://t26uaecjwast"
+path="res://.godot/imported/Daft Punk - Television Rules the Nation ⧸ Crescendolls.ogg-f3eeeb04e0d73c0d2101ae994052f38f.oggvorbisstr"
+
+[deps]
+
+source_file="res://musique/Daft Punk - Television Rules the Nation ⧸ Crescendolls.ogg"
+dest_files=["res://.godot/imported/Daft Punk - Television Rules the Nation ⧸ Crescendolls.ogg-f3eeeb04e0d73c0d2101ae994052f38f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

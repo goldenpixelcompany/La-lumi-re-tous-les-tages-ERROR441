@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://wc7dq6dn322k"]
+
+[ext_resource type="Script" path="res://Color_Palette.gd" id="1_as0sa"]
+[ext_resource type="PackedScene" uid="uid://d4b7ci36gcw33" path="res://color_selection.tscn" id="2_wca20"]
+[ext_resource type="FontFile" uid="uid://dyfftw43h1bkw" path="res://Font/ENSADLED-Regular.otf" id="2_ylbvq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q7dxb"]
+font = ExtResource("2_ylbvq")
+
+[node name="Color_Palette" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_as0sa")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "  COULEURS"
+label_settings = SubResource("LabelSettings_q7dxb")
+vertical_alignment = 1
+
+[node name="line" type="ColorRect" parent="VBoxContainer/Label"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 5
+
+[node name="wheel_container" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Color_selection" parent="VBoxContainer/wheel_container" instance=ExtResource("2_wca20")]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+
+[connection signal="resized" from="." to="." method="_on_resized"]
+[connection signal="color_selected_change" from="VBoxContainer/wheel_container/Color_selection" to="." method="_on_color_selection_color_selected_change"]

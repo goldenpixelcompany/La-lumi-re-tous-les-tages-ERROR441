@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b3vhvyko077lu"
+path="res://.godot/imported/The Black Eyed Peas - Don’t Stop The Party.ogg-607943ef16d6b1ca64bcaf3fc8967636.oggvorbisstr"
+
+[deps]
+
+source_file="res://musique/The Black Eyed Peas - Don’t Stop The Party.ogg"
+dest_files=["res://.godot/imported/The Black Eyed Peas - Don’t Stop The Party.ogg-607943ef16d6b1ca64bcaf3fc8967636.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

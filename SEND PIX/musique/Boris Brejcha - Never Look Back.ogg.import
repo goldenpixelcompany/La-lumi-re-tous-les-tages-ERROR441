@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dm8wr6cw27be8"
+path="res://.godot/imported/Boris Brejcha - Never Look Back.ogg-0a74e41fbc83db874b7d39365c96a005.oggvorbisstr"
+
+[deps]
+
+source_file="res://musique/Boris Brejcha - Never Look Back.ogg"
+dest_files=["res://.godot/imported/Boris Brejcha - Never Look Back.ogg-0a74e41fbc83db874b7d39365c96a005.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

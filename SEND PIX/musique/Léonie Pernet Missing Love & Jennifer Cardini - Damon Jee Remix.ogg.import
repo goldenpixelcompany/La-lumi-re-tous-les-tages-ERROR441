@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b03vjwl2e3yfa"
+path="res://.godot/imported/Léonie Pernet Missing Love & Jennifer Cardini - Damon Jee Remix.ogg-ff9aad8029aaafc3aad3f67716f6647e.oggvorbisstr"
+
+[deps]
+
+source_file="res://musique/Léonie Pernet Missing Love & Jennifer Cardini - Damon Jee Remix.ogg"
+dest_files=["res://.godot/imported/Léonie Pernet Missing Love & Jennifer Cardini - Damon Jee Remix.ogg-ff9aad8029aaafc3aad3f67716f6647e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

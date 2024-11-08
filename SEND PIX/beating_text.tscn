@@ -1,0 +1,90 @@
+[gd_scene load_steps=11 format=3 uid="uid://d3mp7oaynyiqc"]
+
+[ext_resource type="Script" path="res://Beating_Text.gd" id="1_1dh41"]
+[ext_resource type="Shader" path="res://general_frame_shader.gdshader" id="2_n3twk"]
+[ext_resource type="Script" path="res://Beat_rect.gd" id="3_m8pjg"]
+[ext_resource type="Shader" path="res://position_font_test.gdshader" id="4_0r68v"]
+[ext_resource type="FontFile" uid="uid://dyfftw43h1bkw" path="res://Font/ENSADLED-Regular.otf" id="4_6qkks"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qq1hp"]
+resource_local_to_scene = true
+shader = ExtResource("2_n3twk")
+shader_parameter/line_thinckness = null
+shader_parameter/line_alpha = null
+shader_parameter/aspect_ratio = null
+shader_parameter/theme_color = null
+shader_parameter/alpha = null
+shader_parameter/beat_mode = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w7lb2"]
+resource_local_to_scene = true
+shader = ExtResource("4_0r68v")
+shader_parameter/offset = null
+
+[sub_resource type="FontVariation" id="FontVariation_xec6c"]
+resource_local_to_scene = true
+base_font = ExtResource("4_6qkks")
+
+[sub_resource type="LabelSettings" id="LabelSettings_jruiy"]
+resource_local_to_scene = true
+font = SubResource("FontVariation_xec6c")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_arunw"]
+resource_local_to_scene = true
+shader = ExtResource("2_n3twk")
+shader_parameter/line_thinckness = null
+shader_parameter/line_alpha = null
+shader_parameter/aspect_ratio = null
+shader_parameter/theme_color = null
+shader_parameter/alpha = null
+shader_parameter/beat_mode = null
+
+[node name="Beating_Text" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1dh41")
+down_margin_ratio = 0.45
+up_margin_ratio = 0.35
+rect_color = Color(1, 1, 1, 1)
+letter_space = -50
+text = "LE PIPI LOVE"
+
+[node name="Back_ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_qq1hp")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_m8pjg")
+
+[node name="Label" type="Label" parent="."]
+clip_children = 2
+material = SubResource("ShaderMaterial_w7lb2")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_jruiy")
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 1
+
+[node name="Clipped_ColorRect" type="ColorRect" parent="Label"]
+material = SubResource("ShaderMaterial_arunw")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_m8pjg")
+
+[connection signal="resized" from="." to="." method="_on_resized"]

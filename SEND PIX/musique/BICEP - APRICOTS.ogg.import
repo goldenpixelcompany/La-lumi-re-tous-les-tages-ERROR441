@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bjmkb7dbqtkc3"
+path="res://.godot/imported/BICEP - APRICOTS.ogg-67c7b3ff7fa75ce9ba7e78815fff4bc4.oggvorbisstr"
+
+[deps]
+
+source_file="res://musique/BICEP - APRICOTS.ogg"
+dest_files=["res://.godot/imported/BICEP - APRICOTS.ogg-67c7b3ff7fa75ce9ba7e78815fff4bc4.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

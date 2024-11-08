@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bpj7gtnhyv76o"
+path="res://.godot/imported/DECIUS - LOOK LIKE A MAN.ogg-ff78c458eccf126c910b6b42a41f3e1d.oggvorbisstr"
+
+[deps]
+
+source_file="res://musique/DECIUS - LOOK LIKE A MAN.ogg"
+dest_files=["res://.godot/imported/DECIUS - LOOK LIKE A MAN.ogg-ff78c458eccf126c910b6b42a41f3e1d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,113 @@
+[gd_scene load_steps=10 format=3 uid="uid://b3xwiexy76qh0"]
+
+[ext_resource type="Shader" path="res://back_forward_button_shader.gdshader" id="1_b06rv"]
+[ext_resource type="Script" path="res://timeline_control_buttons.gd" id="1_x5cws"]
+[ext_resource type="Texture2D" uid="uid://cedy3wep2wbk6" path="res://icons/back.png" id="2_cun3h"]
+[ext_resource type="Script" path="res://TL_control_button.gd" id="3_huhfh"]
+[ext_resource type="Texture2D" uid="uid://xsg0khj6a2uv" path="res://icons/play.png" id="4_ryuqc"]
+[ext_resource type="Texture2D" uid="uid://c5vcaj7meaiit" path="res://icons/forth.png" id="5_r04nv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k7r1p"]
+resource_local_to_scene = true
+shader = ExtResource("1_b06rv")
+shader_parameter/line_thickness = 0.025
+shader_parameter/line_color = Vector3(1, 1, 1)
+shader_parameter/margin_size = Vector2(0.15, 0.2)
+shader_parameter/scndTriangle_translation_coef = 0.666
+shader_parameter/forward = false
+shader_parameter/doubled = true
+shader_parameter/hovered = false
+shader_parameter/color_factor = 1.0
+shader_parameter/stop = null
+shader_parameter/stop_margin = null
+shader_parameter/teta = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8uuqu"]
+resource_local_to_scene = true
+shader = ExtResource("1_b06rv")
+shader_parameter/line_thickness = 0.025
+shader_parameter/line_color = Vector3(1, 1, 1)
+shader_parameter/margin_size = Vector2(0.15, 0.2)
+shader_parameter/scndTriangle_translation_coef = 0.333
+shader_parameter/forward = true
+shader_parameter/doubled = false
+shader_parameter/hovered = false
+shader_parameter/color_factor = 1.0
+shader_parameter/stop = true
+shader_parameter/stop_margin = Vector2(2.33, 1.25)
+shader_parameter/teta = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1dqsp"]
+shader = ExtResource("1_b06rv")
+shader_parameter/line_thickness = 0.05
+shader_parameter/line_color = null
+shader_parameter/margin_size = Vector2(0.15, 0.2)
+shader_parameter/scndTriangle_translation_coef = 0.666
+shader_parameter/forward = true
+shader_parameter/doubled = true
+shader_parameter/hovered = false
+shader_parameter/color_factor = null
+shader_parameter/stop = null
+shader_parameter/stop_margin = null
+shader_parameter/teta = null
+
+[node name="HBoxContainer" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+alignment = 1
+script = ExtResource("1_x5cws")
+
+[node name="back" type="Button" parent="."]
+modulate = Color(1, 0.976471, 1, 1)
+material = SubResource("ShaderMaterial_k7r1p")
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+icon = ExtResource("2_cun3h")
+flat = true
+expand_icon = true
+script = ExtResource("3_huhfh")
+scale_factor = 1.008
+
+[node name="play" type="Button" parent="."]
+material = SubResource("ShaderMaterial_8uuqu")
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+icon = ExtResource("4_ryuqc")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_huhfh")
+
+[node name="forward" type="Button" parent="."]
+material = SubResource("ShaderMaterial_1dqsp")
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0.454902, 0.454902, 0.454902, 1)
+icon = ExtResource("5_r04nv")
+flat = true
+icon_alignment = 2
+expand_icon = true
+script = ExtResource("3_huhfh")
+scale_factor = 1.008
+
+[connection signal="resized" from="." to="." method="_on_resized"]
+[connection signal="mouse_entered" from="back" to="back" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="back" to="back" method="_on_mouse_exited"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="back" to="back" method="_on_pressed"]
+[connection signal="mouse_entered" from="play" to="play" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="play" to="play" method="_on_mouse_exited"]
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="play" to="play" method="_on_pressed"]
+[connection signal="mouse_entered" from="forward" to="forward" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="forward" to="forward" method="_on_mouse_exited"]
+[connection signal="pressed" from="forward" to="." method="_on_forward_pressed"]
+[connection signal="pressed" from="forward" to="forward" method="_on_pressed"]

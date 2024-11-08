@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgst20clky2nb"]
+
+[ext_resource type="Script" path="res://dir_slot.gd" id="1_olate"]
+[ext_resource type="FontFile" uid="uid://dyfftw43h1bkw" path="res://Font/ENSADLED-Regular.otf" id="2_g0ghb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4wnh3"]
+resource_local_to_scene = true
+font = ExtResource("2_g0ghb")
+
+[node name="dir_slot" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+script = ExtResource("1_olate")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 20.0
+grow_horizontal = 2
+text = "LOADING..."
+label_settings = SubResource("LabelSettings_4wnh3")
+
+[node name="ColorRect" type="ColorRect" parent="Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="Label"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+flat = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="resized" from="." to="." method="_on_resized"]
+[connection signal="minimum_size_changed" from="Label" to="." method="_on_label_minimum_size_changed"]
+[connection signal="mouse_entered" from="Label/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Label/Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Label/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

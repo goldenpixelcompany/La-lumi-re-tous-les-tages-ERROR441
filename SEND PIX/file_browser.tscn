@@ -1,0 +1,127 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1ccxbmqe374w"]
+
+[ext_resource type="Script" path="res://file_browser.gd" id="1_p80lh"]
+[ext_resource type="Shader" path="res://general_frame_shader.gdshader" id="1_vl1tl"]
+[ext_resource type="Shader" path="res://dither.gdshader" id="2_k5iaj"]
+[ext_resource type="Script" path="res://animated_preview.gd" id="4_45bdn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4nj62"]
+shader = ExtResource("2_k5iaj")
+shader_parameter/dither_size = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g8cgj"]
+resource_local_to_scene = true
+shader = ExtResource("1_vl1tl")
+shader_parameter/line_thinckness = 0.05
+shader_parameter/line_alpha = 0.0
+shader_parameter/aspect_ratio = 1.0
+shader_parameter/theme_color = null
+shader_parameter/alpha = 1.0
+shader_parameter/beat_mode = false
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5qxpa"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="file_browser" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p80lh")
+
+[node name="shadow" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ColorRect" type="ColorRect" parent="shadow"]
+material = SubResource("ShaderMaterial_4nj62")
+layout_mode = 2
+color = Color(0, 0, 0, 0.513726)
+
+[node name="browser" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+
+[node name="frame" type="ColorRect" parent="browser"]
+material = SubResource("ShaderMaterial_g8cgj")
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="browser"]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="browser/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="browser/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+follow_focus = true
+vertical_scroll_mode = 3
+
+[node name="dir_list" type="VBoxContainer" parent="browser/MarginContainer/HBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="Preview" type="VBoxContainer" parent="browser/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="animated_preview_control" type="Control" parent="browser/MarginContainer/HBoxContainer/Preview"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="browser/MarginContainer/HBoxContainer/Preview/animated_preview_control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_45bdn")
+
+[node name="animated_preview" type="AnimatedSprite2D" parent="browser/MarginContainer/HBoxContainer/Preview/animated_preview_control/Control"]
+texture_filter = 1
+scale = Vector2(10, 11)
+sprite_frames = SubResource("SpriteFrames_5qxpa")
+
+[node name="list_preveiw" type="ScrollContainer" parent="browser/MarginContainer/HBoxContainer/Preview"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="list_preview_flow" type="HFlowContainer" parent="browser/MarginContainer/HBoxContainer/Preview/list_preveiw"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 7
+theme_override_constants/v_separation = 7
+alignment = 1

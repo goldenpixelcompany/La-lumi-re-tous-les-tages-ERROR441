@@ -1,0 +1,178 @@
+[gd_scene load_steps=9 format=3 uid="uid://bt82mmo6nrgs"]
+
+[ext_resource type="Script" path="res://mixette.gd" id="1_8vv1n"]
+[ext_resource type="PackedScene" uid="uid://bsbubgvxjfrty" path="res://fps_bar.tscn" id="1_dftpl"]
+[ext_resource type="Shader" path="res://H_toggle_shader.gdshader" id="3_fq8ea"]
+[ext_resource type="Script" path="res://H_tggle.gd" id="4_od1ja"]
+[ext_resource type="PackedScene" uid="uid://b3xwiexy76qh0" path="res://timeline_control_buttons.tscn" id="5_7yoau"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ubpiv"]
+resource_local_to_scene = true
+shader = ExtResource("3_fq8ea")
+shader_parameter/theme_color = Vector3(1, 1, 1)
+shader_parameter/border_size = 0.1
+shader_parameter/on = false
+
+[sub_resource type="Gradient" id="Gradient_pkamw"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tw4hv"]
+gradient = SubResource("Gradient_pkamw")
+
+[node name="Mixette" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8vv1n")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="main_container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FPS_BPM" type="Control" parent="main_container"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="main_container/FPS_BPM"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FPS_bar" parent="main_container/FPS_BPM/HBoxContainer" instance=ExtResource("1_dftpl")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="bpm" type="Control" parent="main_container/FPS_BPM/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Color_balance" type="HBoxContainer" parent="main_container"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="HSV" type="VBoxContainer" parent="main_container/Color_balance"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="H" type="HBoxContainer" parent="main_container/Color_balance/HSV"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="H_bar" parent="main_container/Color_balance/HSV/H" instance=ExtResource("1_dftpl")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+Label_text = "H"
+max_value = 6.283
+step = 0.001
+label_bg_size_factor = 1.2
+
+[node name="MarginContainer" type="MarginContainer" parent="main_container/Color_balance/HSV/H"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ColorRect" type="TextureButton" parent="main_container/Color_balance/HSV/H/MarginContainer"]
+material = SubResource("ShaderMaterial_ubpiv")
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+texture_normal = SubResource("GradientTexture1D_tw4hv")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_od1ja")
+
+[node name="S_bar" parent="main_container/Color_balance/HSV" instance=ExtResource("1_dftpl")]
+layout_mode = 2
+size_flags_vertical = 3
+Label_text = "S"
+max_value = 1.0
+step = 0.001
+label_bg_size_factor = 1.2
+
+[node name="V_bar" parent="main_container/Color_balance/HSV" instance=ExtResource("1_dftpl")]
+layout_mode = 2
+size_flags_vertical = 3
+Label_text = "V"
+max_value = 1.0
+step = 0.001
+label_bg_size_factor = 1.2
+
+[node name="RGB" type="VBoxContainer" parent="main_container/Color_balance"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="R_bar" parent="main_container/Color_balance/RGB" instance=ExtResource("1_dftpl")]
+layout_mode = 2
+size_flags_vertical = 3
+Label_text = "R"
+max_value = 1.0
+step = 0.001
+label_bg_size_factor = 1.2
+
+[node name="G_bar" parent="main_container/Color_balance/RGB" instance=ExtResource("1_dftpl")]
+layout_mode = 2
+size_flags_vertical = 3
+Label_text = "G"
+max_value = 1.0
+step = 0.001
+label_bg_size_factor = 1.2
+
+[node name="B_bar" parent="main_container/Color_balance/RGB" instance=ExtResource("1_dftpl")]
+layout_mode = 2
+size_flags_vertical = 3
+Label_text = "B"
+max_value = 1.0
+step = 0.001
+label_bg_size_factor = 1.5
+
+[node name="TL_command" type="MarginContainer" parent="main_container"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="HBoxContainer" parent="main_container/TL_command" instance=ExtResource("5_7yoau")]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[connection signal="resized" from="." to="." method="_on_resized"]
+[connection signal="value_change" from="main_container/FPS_BPM/HBoxContainer/FPS_bar" to="." method="_on_bar_value_change"]
+[connection signal="value_change" from="main_container/Color_balance/HSV/H/H_bar" to="." method="_on_bar_value_change"]
+[connection signal="pressed" from="main_container/Color_balance/HSV/H/MarginContainer/ColorRect" to="main_container/Color_balance/HSV/H/MarginContainer/ColorRect" method="_on_pressed"]
+[connection signal="toggled_state_change" from="main_container/Color_balance/HSV/H/MarginContainer/ColorRect" to="." method="_on_h_toggled_state_change"]
+[connection signal="value_change" from="main_container/Color_balance/HSV/S_bar" to="." method="_on_bar_value_change"]
+[connection signal="value_change" from="main_container/Color_balance/HSV/V_bar" to="." method="_on_bar_value_change"]
+[connection signal="value_change" from="main_container/Color_balance/RGB/R_bar" to="." method="_on_bar_value_change"]
+[connection signal="value_change" from="main_container/Color_balance/RGB/G_bar" to="." method="_on_bar_value_change"]
+[connection signal="value_change" from="main_container/Color_balance/RGB/B_bar" to="." method="_on_bar_value_change"]
+[connection signal="play_stop_input" from="main_container/TL_command/HBoxContainer" to="." method="_on_h_box_container_play_stop_input"]
+[connection signal="tl_input" from="main_container/TL_command/HBoxContainer" to="." method="_on_h_box_container_tl_input"]

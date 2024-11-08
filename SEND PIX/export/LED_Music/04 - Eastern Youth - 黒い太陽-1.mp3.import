@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://kkcc3a08iva0"
+path="res://.godot/imported/04 - Eastern Youth - 黒い太陽-1.mp3-3634cf8f928a4281dc7d636826607cbb.mp3str"
+
+[deps]
+
+source_file="res://export/LED_Music/04 - Eastern Youth - 黒い太陽-1.mp3"
+dest_files=["res://.godot/imported/04 - Eastern Youth - 黒い太陽-1.mp3-3634cf8f928a4281dc7d636826607cbb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,192 @@
+[gd_scene load_steps=16 format=3 uid="uid://kn5qfqal1dad"]
+
+[ext_resource type="Script" path="res://music_player.gd" id="1_2fel2"]
+[ext_resource type="Shader" path="res://music_player_button.gdshader" id="3_2tg45"]
+[ext_resource type="Script" path="res://play_bar.gd" id="3_6mdl2"]
+[ext_resource type="Script" path="res://music_player_button.gd" id="3_7pv3h"]
+[ext_resource type="Shader" path="res://music_player_bar.gdshader" id="3_xowc7"]
+[ext_resource type="Texture2D" uid="uid://cedy3wep2wbk6" path="res://icons/back.png" id="4_range"]
+[ext_resource type="FontFile" uid="uid://dyfftw43h1bkw" path="res://Font/ENSADLED-Regular.otf" id="4_y7g78"]
+[ext_resource type="Texture2D" uid="uid://xsg0khj6a2uv" path="res://icons/play.png" id="6_3vlaw"]
+[ext_resource type="Script" path="res://Label_scroll_music_player.gd" id="6_somgs"]
+[ext_resource type="Texture2D" uid="uid://c5vcaj7meaiit" path="res://icons/forth.png" id="7_xqxug"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xtxhw"]
+resource_local_to_scene = true
+shader = ExtResource("3_2tg45")
+shader_parameter/color_theme = null
+shader_parameter/line_thickness = null
+shader_parameter/color_factor = null
+shader_parameter/forth = null
+shader_parameter/play = null
+shader_parameter/marge = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3n1fs"]
+resource_local_to_scene = true
+shader = ExtResource("3_2tg45")
+shader_parameter/color_theme = null
+shader_parameter/line_thickness = null
+shader_parameter/color_factor = null
+shader_parameter/forth = true
+shader_parameter/play = true
+shader_parameter/marge = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kj276"]
+resource_local_to_scene = true
+shader = ExtResource("3_2tg45")
+shader_parameter/color_theme = null
+shader_parameter/line_thickness = 0.1
+shader_parameter/color_factor = null
+shader_parameter/forth = true
+shader_parameter/play = false
+shader_parameter/marge = Vector2(0.25, 0.2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bkapm"]
+shader = ExtResource("3_xowc7")
+shader_parameter/base_line_thickness = 0.3
+shader_parameter/color_theme = null
+shader_parameter/line_ratio = 3.0
+shader_parameter/progress = 0.6
+shader_parameter/color_ratio = null
+
+[sub_resource type="LabelSettings" id="LabelSettings_cc7jv"]
+font = ExtResource("4_y7g78")
+
+[node name="music_player" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2fel2")
+label_size = 0.015
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/separation = 10
+
+[node name="back" type="TextureRect" parent="HBoxContainer"]
+material = SubResource("ShaderMaterial_xtxhw")
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+texture = ExtResource("4_range")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("3_7pv3h")
+index = -1
+margin = Vector2(0.4, 0.35)
+line_thickness = 0.07
+
+[node name="Button" type="Button" parent="HBoxContainer/back"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+flat = true
+
+[node name="play" type="TextureRect" parent="HBoxContainer"]
+material = SubResource("ShaderMaterial_3n1fs")
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+texture = ExtResource("6_3vlaw")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("3_7pv3h")
+play = true
+forth = true
+margin = Vector2(0.35, 0.3)
+line_thickness = 0.07
+
+[node name="Button" type="Button" parent="HBoxContainer/play"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+flat = true
+
+[node name="next" type="TextureRect" parent="HBoxContainer"]
+material = SubResource("ShaderMaterial_kj276")
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+texture = ExtResource("7_xqxug")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("3_7pv3h")
+index = 1
+forth = true
+margin = Vector2(0.4, 0.35)
+line_thickness = 0.07
+
+[node name="Button" type="Button" parent="HBoxContainer/next"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+flat = true
+
+[node name="bar" type="ColorRect" parent="HBoxContainer"]
+material = SubResource("ShaderMaterial_bkapm")
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 15.0
+color = Color(1, 1, 1, 0)
+script = ExtResource("3_6mdl2")
+base_line_thickness = 0.045
+line_ratio = 1.5
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 3.0
+label_settings = SubResource("LabelSettings_cc7jv")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+script = ExtResource("6_somgs")
+num_chars_display = 15
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="resized" from="." to="." method="_on_resized"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="pressed" from="HBoxContainer/back" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="HBoxContainer/back/Button" to="HBoxContainer/back" method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/back/Button" to="HBoxContainer/back" method="_on_button_mouse_exited"]
+[connection signal="pressed" from="HBoxContainer/back/Button" to="HBoxContainer/back" method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/play" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="HBoxContainer/play/Button" to="HBoxContainer/play" method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/play/Button" to="HBoxContainer/play" method="_on_button_mouse_exited"]
+[connection signal="pressed" from="HBoxContainer/play/Button" to="HBoxContainer/play" method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/next" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="HBoxContainer/next/Button" to="HBoxContainer/next" method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/next/Button" to="HBoxContainer/next" method="_on_button_mouse_exited"]
+[connection signal="pressed" from="HBoxContainer/next/Button" to="HBoxContainer/next" method="_on_button_pressed"]
+[connection signal="clicked" from="HBoxContainer/bar" to="." method="_on_bar_clicked"]
+[connection signal="mouse_entered" from="HBoxContainer/bar" to="HBoxContainer/bar" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/bar" to="HBoxContainer/bar" method="_on_mouse_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

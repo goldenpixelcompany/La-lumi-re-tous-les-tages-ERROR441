@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddgkmv6qy3tfr"]
+
+[ext_resource type="Script" path="res://Color_tools.gd" id="1_oikgn"]
+[ext_resource type="PackedScene" uid="uid://d4b7ci36gcw33" path="res://color_selection.tscn" id="2_2c7j7"]
+
+[node name="Color_tools" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oikgn")
+
+[node name="Color_selection" parent="." instance=ExtResource("2_2c7j7")]
+layout_mode = 1

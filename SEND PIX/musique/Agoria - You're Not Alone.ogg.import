@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dlkba01tcp3o0"
+path="res://.godot/imported/Agoria - You're Not Alone.ogg-31f6b0c03152e8ebf6533a5221e0492f.oggvorbisstr"
+
+[deps]
+
+source_file="res://musique/Agoria - You're Not Alone.ogg"
+dest_files=["res://.godot/imported/Agoria - You're Not Alone.ogg-31f6b0c03152e8ebf6533a5221e0492f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

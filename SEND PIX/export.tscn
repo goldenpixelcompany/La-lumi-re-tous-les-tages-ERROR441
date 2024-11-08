@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://b36cavvikqclg"]
+
+[ext_resource type="Script" path="res://Export.gd" id="1_alk16"]
+[ext_resource type="Shader" path="res://general_frame_shader.gdshader" id="2_hdbo6"]
+[ext_resource type="FontFile" uid="uid://dyfftw43h1bkw" path="res://Font/ENSADLED-Regular.otf" id="2_idm5b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ulwl6"]
+shader = ExtResource("2_hdbo6")
+shader_parameter/line_thinckness = 0.05
+shader_parameter/line_alpha = null
+shader_parameter/aspect_ratio = 1.0
+shader_parameter/theme_color = null
+shader_parameter/alpha = null
+shader_parameter/beat_mode = null
+
+[sub_resource type="LabelSettings" id="LabelSettings_cevao"]
+font = ExtResource("2_idm5b")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v725o"]
+
+[node name="Export" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_alk16")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+material = SubResource("ShaderMaterial_ulwl6")
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "SEND PIX"
+label_settings = SubResource("LabelSettings_cevao")
+
+[node name="Button" type="Button" parent="MarginContainer"]
+layout_mode = 2
+focus_mode = 0
+flat = true
+
+[node name="TextEdit" type="LineEdit" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/selection_color = Color(0, 0, 0, 0)
+theme_override_constants/caret_width = 10
+theme_override_fonts/font = ExtResource("2_idm5b")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v725o")
+placeholder_text = "NOM/PSEUDO"
+alignment = 1
+flat = true
+caret_blink = true
+
+[connection signal="resized" from="." to="." method="_on_resized"]
+[connection signal="mouse_entered" from="MarginContainer/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="text_changed" from="MarginContainer/TextEdit" to="." method="_on_text_edit_text_changed"]

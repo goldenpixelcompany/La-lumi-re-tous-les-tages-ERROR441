@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cehi23ictr56e"
+path="res://.godot/imported/The Heart of Noise - Pt. 2.ogg-ec3ca58096a9c61c732c77c551381919.oggvorbisstr"
+
+[deps]
+
+source_file="res://musique/The Heart of Noise - Pt. 2.ogg"
+dest_files=["res://.godot/imported/The Heart of Noise - Pt. 2.ogg-ec3ca58096a9c61c732c77c551381919.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

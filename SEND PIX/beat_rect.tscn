@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://fk1i2xjta8vc"]
+
+[ext_resource type="Script" path="res://Beat_rect.gd" id="1_cxyqb"]
+[ext_resource type="Shader" path="res://general_frame_shader.gdshader" id="1_h4k05"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b6rd3"]
+resource_local_to_scene = true
+shader = ExtResource("1_h4k05")
+shader_parameter/line_thinckness = 0.1
+shader_parameter/line_alpha = 1.0
+shader_parameter/aspect_ratio = 1.0
+shader_parameter/theme_color = null
+shader_parameter/alpha = 1.0
+shader_parameter/beat_mode = true
+
+[node name="Beat_rect" type="ColorRect"]
+material = SubResource("ShaderMaterial_b6rd3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cxyqb")
+
+[connection signal="resized" from="." to="." method="_on_resized"]

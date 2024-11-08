@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://tovw873x78jd"
+path="res://.godot/imported/Supermode - Tell Me Why.ogg-a27a0e9625f3f2a18e7911562e8c50fe.oggvorbisstr"
+
+[deps]
+
+source_file="res://musique/Supermode - Tell Me Why.ogg"
+dest_files=["res://.godot/imported/Supermode - Tell Me Why.ogg-a27a0e9625f3f2a18e7911562e8c50fe.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,200 @@
+[gd_scene load_steps=20 format=3 uid="uid://dd6j5ui72gw26"]
+
+[ext_resource type="Texture2D" uid="uid://xsg0khj6a2uv" path="res://icons/play.png" id="1_flask"]
+[ext_resource type="Script" path="res://tl_control_buttons.gd" id="1_wehr8"]
+[ext_resource type="Shader" path="res://general_frame_shader.gdshader" id="2_exmts"]
+[ext_resource type="Texture2D" uid="uid://cedy3wep2wbk6" path="res://icons/back.png" id="2_o7qhw"]
+[ext_resource type="Texture2D" uid="uid://c5vcaj7meaiit" path="res://icons/forth.png" id="3_j0v76"]
+[ext_resource type="Script" path="res://general_frame.gd" id="3_kg1ns"]
+[ext_resource type="PackedScene" uid="uid://bsbubgvxjfrty" path="res://fps_bar.tscn" id="4_kmn4g"]
+[ext_resource type="Script" path="res://TL_control_button.gd" id="4_nfve7"]
+[ext_resource type="Shader" path="res://back_forward_button_shader.gdshader" id="4_t2bf8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y67aq"]
+resource_local_to_scene = true
+shader = ExtResource("2_exmts")
+shader_parameter/line_thinckness = 0.01
+shader_parameter/line_alpha = null
+shader_parameter/aspect_ratio = 0.5
+shader_parameter/theme_color = null
+shader_parameter/alpha = null
+shader_parameter/beat_mode = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_npyin"]
+resource_local_to_scene = true
+shader = ExtResource("4_t2bf8")
+shader_parameter/line_thickness = 0.025
+shader_parameter/line_color = Vector3(1, 1, 1)
+shader_parameter/margin_size = Vector2(0.15, 0.2)
+shader_parameter/scndTriangle_translation_coef = 0.666
+shader_parameter/forward = false
+shader_parameter/doubled = true
+shader_parameter/hovered = false
+shader_parameter/color_factor = 1.0
+shader_parameter/stop = null
+shader_parameter/stop_margin = null
+shader_parameter/teta = null
+
+[sub_resource type="InputEventKey" id="InputEventKey_n0aj0"]
+device = -1
+keycode = 4194319
+
+[sub_resource type="Shortcut" id="Shortcut_34jp5"]
+events = [SubResource("InputEventKey_n0aj0")]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0jxbv"]
+resource_local_to_scene = true
+shader = ExtResource("4_t2bf8")
+shader_parameter/line_thickness = 0.025
+shader_parameter/line_color = Vector3(1, 1, 1)
+shader_parameter/margin_size = Vector2(0.2, 0.1)
+shader_parameter/scndTriangle_translation_coef = 0.666
+shader_parameter/forward = false
+shader_parameter/doubled = false
+shader_parameter/hovered = false
+shader_parameter/color_factor = 1.0
+shader_parameter/stop = true
+shader_parameter/stop_margin = Vector2(1.75, 1.75)
+shader_parameter/teta = 0.0
+
+[sub_resource type="InputEventKey" id="InputEventKey_n7fjn"]
+keycode = 32
+
+[sub_resource type="Shortcut" id="Shortcut_nuk4d"]
+events = [SubResource("InputEventKey_n7fjn")]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nelra"]
+shader = ExtResource("4_t2bf8")
+shader_parameter/line_thickness = 0.05
+shader_parameter/line_color = null
+shader_parameter/margin_size = Vector2(0.15, 0.2)
+shader_parameter/scndTriangle_translation_coef = 0.666
+shader_parameter/forward = true
+shader_parameter/doubled = true
+shader_parameter/hovered = false
+shader_parameter/color_factor = null
+shader_parameter/stop = null
+shader_parameter/stop_margin = null
+shader_parameter/teta = null
+
+[sub_resource type="InputEventKey" id="InputEventKey_akm6b"]
+device = -1
+keycode = 4194321
+physical_keycode = 4194321
+key_label = 4194321
+
+[sub_resource type="Shortcut" id="Shortcut_myx7n"]
+resource_local_to_scene = true
+events = [SubResource("InputEventKey_akm6b")]
+
+[node name="TL_control_buttons" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -731.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wehr8")
+
+[node name="TextureRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_y67aq")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_kg1ns")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 5
+
+[node name="FPS_bar" parent="MarginContainer/VBoxContainer/MarginContainer" instance=ExtResource("4_kmn4g")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="back" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+modulate = Color(1, 0.976471, 1, 1)
+material = SubResource("ShaderMaterial_npyin")
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+shortcut = SubResource("Shortcut_34jp5")
+icon = ExtResource("2_o7qhw")
+flat = true
+expand_icon = true
+script = ExtResource("4_nfve7")
+scale_factor = 1.008
+
+[node name="play" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+material = SubResource("ShaderMaterial_0jxbv")
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+shortcut = SubResource("Shortcut_nuk4d")
+icon = ExtResource("1_flask")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_nfve7")
+
+[node name="forward" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+material = SubResource("ShaderMaterial_nelra")
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0.454902, 0.454902, 0.454902, 1)
+shortcut = SubResource("Shortcut_myx7n")
+icon = ExtResource("3_j0v76")
+flat = true
+icon_alignment = 2
+expand_icon = true
+script = ExtResource("4_nfve7")
+scale_factor = 1.008
+
+[connection signal="resized" from="TextureRect" to="TextureRect" method="_on_resized"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/back" to="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/back" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/back" to="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/back" method="_on_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/back" to="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/back" method="_on_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/play" to="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/play" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/play" to="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/play" method="_on_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/play" to="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/play" method="_on_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/forward" to="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/forward" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/forward" to="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/forward" method="_on_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/forward" to="." method="_on_forward_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/forward" to="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/forward" method="_on_pressed"]

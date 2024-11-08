@@ -1,0 +1,125 @@
+[gd_scene load_steps=11 format=3 uid="uid://ds1rljx56t256"]
+
+[ext_resource type="Script" path="res://outils.gd" id="1_7rmrk"]
+[ext_resource type="FontFile" uid="uid://dyfftw43h1bkw" path="res://Font/ENSADLED-Regular.otf" id="2_yqor2"]
+[ext_resource type="Shader" path="res://tool_button.gdshader" id="3_065nw"]
+[ext_resource type="PackedScene" uid="uid://wc7dq6dn322k" path="res://color_palette.tscn" id="3_a01cl"]
+[ext_resource type="Texture2D" uid="uid://chao1omvlgqyq" path="res://icons/pencil_hand.png" id="3_paj1n"]
+[ext_resource type="Texture2D" uid="uid://djyq1fvl6bwbm" path="res://icons/bucket_hand.png" id="4_hqupc"]
+[ext_resource type="Script" path="res://pencil.gd" id="5_sfay5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4g0tm"]
+font = ExtResource("2_yqor2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gabqe"]
+resource_local_to_scene = true
+shader = ExtResource("3_065nw")
+shader_parameter/hovered = false
+shader_parameter/theme_color = Vector3(1, 0.6, 0)
+shader_parameter/color_factor = 0.7
+shader_parameter/seuil_alpha = 0.1
+shader_parameter/line_thickness = 0.01
+shader_parameter/line_as_fill = false
+shader_parameter/scale = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vex2e"]
+resource_local_to_scene = true
+shader = ExtResource("3_065nw")
+shader_parameter/hovered = false
+shader_parameter/theme_color = Vector3(0.9, 0.5, 0.2)
+shader_parameter/color_factor = 0.7
+shader_parameter/seuil_alpha = 0.1
+shader_parameter/line_thickness = 0.05
+shader_parameter/line_as_fill = true
+shader_parameter/scale = 1.0
+
+[node name="Outils" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7rmrk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "  OUTILS"
+label_settings = SubResource("LabelSettings_4g0tm")
+vertical_alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.33
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 100
+
+[node name="tools" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+theme_override_constants/separation = 15
+
+[node name="pencil" type="TextureRect" parent="VBoxContainer/MarginContainer/tools"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_gabqe")
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("3_paj1n")
+stretch_mode = 4
+script = ExtResource("5_sfay5")
+
+[node name="Button" type="Button" parent="VBoxContainer/MarginContainer/tools/pencil"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+flat = true
+
+[node name="bucket" type="TextureRect" parent="VBoxContainer/MarginContainer/tools"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_vex2e")
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("4_hqupc")
+stretch_mode = 4
+script = ExtResource("5_sfay5")
+
+[node name="Button" type="Button" parent="VBoxContainer/MarginContainer/tools/bucket"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+flat = true
+
+[node name="Color_Palette" parent="VBoxContainer" instance=ExtResource("3_a01cl")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="resized" from="." to="." method="_on_resized"]
+[connection signal="selected" from="VBoxContainer/MarginContainer/tools/pencil" to="." method="_on_tool_selected"]
+[connection signal="mouse_entered" from="VBoxContainer/MarginContainer/tools/pencil/Button" to="VBoxContainer/MarginContainer/tools/pencil" method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/MarginContainer/tools/pencil/Button" to="VBoxContainer/MarginContainer/tools/pencil" method="_on_button_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/tools/pencil/Button" to="VBoxContainer/MarginContainer/tools/pencil" method="_on_button_pressed"]
+[connection signal="selected" from="VBoxContainer/MarginContainer/tools/bucket" to="." method="_on_tool_selected"]
+[connection signal="mouse_entered" from="VBoxContainer/MarginContainer/tools/bucket/Button" to="VBoxContainer/MarginContainer/tools/bucket" method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/MarginContainer/tools/bucket/Button" to="VBoxContainer/MarginContainer/tools/bucket" method="_on_button_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/tools/bucket/Button" to="VBoxContainer/MarginContainer/tools/bucket" method="_on_button_pressed"]
