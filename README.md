@@ -13,7 +13,20 @@ Composée de 441 fenêtres d’un mètre sur un mètre vingt, la baie vitrée de
 
 **Partie II : Hardware**
 
-POur connecter ces oixels entre eux, nous avons développer un circuit électronique adapté. Chacun d'entre eux controllait 3 pixels. Nous appelions donc les circuits les *métapixels*. Il y avait 147 circuits tous connectés en WIFI et commander par la puce ESP32. Le voici : 
+Pour connecter ces oixels entre eux, nous avons développer un circuit électronique adapté. Chacun d'entre eux controllait 3 pixels. Nous appelions donc les circuits les *métapixels*. Il y avait 147 circuits tous connectés en WIFI et commander par la puce ESP32. Le voici : 
+
+![pcb01](https://github.com/user-attachments/assets/7648f48e-ee1d-4532-b026-cdf56800ffff)
+
+**Partie III : Software**
+
+Pour controller cet écran de pixels géant nous avons developpé le software *SEND PIX*. Essentiellement developpé par Lorris Sahli, le logiciel est à la croisée d'un outil de dessin, de gestion de pixels et d'un instrument de VJing en direct. 
+
+<img width="1398" alt="screen_02" src="https://github.com/user-attachments/assets/5a4d2c44-c6cf-47e9-80d0-86942f0ca963">
 
 
-![pcb_blue](https://github.com/user-attachments/assets/cc9eb6c9-5204-4615-831e-f990a0ef07b2)
+
+Résultat des animations dessinées par le logiciel SEND PIX : 
+<img width="1251" alt="Capture d’écran 2024-10-24 à 10 55 39" src="https://github.com/user-attachments/assets/5fc6194b-e446-44c4-8761-7ce68cc0fc85">
+
+
+
